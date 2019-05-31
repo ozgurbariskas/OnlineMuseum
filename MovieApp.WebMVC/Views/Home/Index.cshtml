@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Exhibition>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var exhibition in Model)
+            {
+            <div class="col-md-3">                
+                <div class="card mb-3 shadow-sm bg-light">
+                    <img src="~/img/@exhibition.image" height=150em />
+                    <div class="card-body">
+                        <p class="card-text">@exhibition.name</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@exhibition.id"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                                <!--<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+                            </div>
+                            <small class="text-muted">@exhibition.date.ToString("dd MMMM yyyy ,dddd")</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+
+        </div>
+    </div>
+</div>

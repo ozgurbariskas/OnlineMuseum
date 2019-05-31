@@ -1,0 +1,36 @@
+﻿@model List<MovieApp.WebMVC.Models.Exhibition>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<button type="button" class="btn btn-info" onclick="javascript: window.location.href='@Url.Action("Create", "Exhibition", new { Area ="Admin"})'">+ ADD</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Exhibition Image</th>
+            <th scope="col">Exhibition Name</th>
+            <th scope="col">Exhibition Date</th>
+            <th scope="col">Ticket Price</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exhibition in Model)
+        {
+            <tr>
+                <td>@exhibition.id</td>
+                <td>@exhibition.image<img src="~/img/@exhibition.image" style="width:100px;" /></td>
+                <td>@exhibition.name</td>
+                <td>@exhibition.date</td>
+                <td>
+                    @exhibition.price
+                </td>
+                <td>
+                    <a href="\Admin\Exhibition\Delete\@exhibition.id"><button type="button" class="btn btn-sm btn-outline-secondary" >Delete</button></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

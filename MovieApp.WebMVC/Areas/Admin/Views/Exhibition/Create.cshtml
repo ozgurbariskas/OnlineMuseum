@@ -1,0 +1,38 @@
+﻿@model MovieApp.WebMVC.Areas.Admin.Models.ExhibitionModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel panel-info ">
+        <h3>Create Exhibition</h3>
+        <div class="panel-body">
+            <form asp-area="Admin" asp-controller="Product" asp-action="create" enctype="multipart/form-data" method="post" class="form-horizontal">
+                <div class="form-group">
+                    <label asp-for="@Model.name" class="control-label"> Name:</label>
+                    <input name="name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.price" class="control-label"> Price:</label>
+                    <input name="price" type="number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.description" class="control-label">Description:</label>
+                    <input name="description" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.date" class="control-label">Date (yyyy,mm,dd):</label>
+                    <input name="date" type="datetime" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <p>Image</p>
+                    <input type="file" name="picture" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-secondary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
